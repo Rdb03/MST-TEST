@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-window.onscroll = function() {
+window.onscroll = function () {
     const header = document.querySelector('header');
     if (window.pageYOffset > 50) {
         header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
