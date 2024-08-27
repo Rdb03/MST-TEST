@@ -7,3 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
         headerList.classList.toggle('open');
     });
 });
+
+window.onscroll = function() {
+    const header = document.querySelector('header');
+    if (window.pageYOffset > 50) { // Когда прокрутка больше 50px
+        header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Затемняем фон
+    } else {
+        header.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Возвращаем полупрозрачный фон
+    }
+};

@@ -27,7 +27,11 @@
 
     .main-title {
         font-size: 60px;
-        margin: 0;
+        margin-top: 100px;
+    }
+
+    .header-img {
+        margin-top: 78px;
     }
 
     .container {
