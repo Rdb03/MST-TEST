@@ -150,6 +150,25 @@
         margin-top: 50px;
         display: block;
     }
+
+    .testimonial-text {
+        font-size: 18px;
+    }
+
+    .testimonial-author {
+        font-size: 16px;
+    }
+
+    .slider-nav .prev,
+    .slider-nav .next {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .slider-dots .dot {
+        width: 10px;
+        height: 10px;
+    }
 }
 
 @media screen and (max-width: 526px) {
