@@ -23,14 +23,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextBtn = document.querySelector('.next');
     const dots = document.querySelectorAll('.dot');
     let currentIndex = 0;
+    let autoSlideInterval;
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
             slide.classList.remove('active');
             dots[i].classList.remove('active');
+            slide.style.display = 'none';
+            slide.style.opacity = '0';
         });
         slides[index].classList.add('active');
         dots[index].classList.add('active');
+        slides[index].style.display = 'block';
+        setTimeout(() => {
+            slides[index].style.opacity = '1';
+        }, 10);
     }
 
     function nextSlide() {
@@ -43,15 +50,31 @@ document.addEventListener('DOMContentLoaded', function () {
         showSlide(currentIndex);
     }
 
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', () => {
+        clearInterval(autoSlideInterval);
+        nextSlide();
+        autoSlide();
+    });
+    prevBtn.addEventListener('click', () => {
+        clearInterval(autoSlideInterval);
+        prevSlide();
+        autoSlide();
+    });
 
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
+            clearInterval(autoSlideInterval);
             currentIndex = index;
             showSlide(currentIndex);
+            autoSlide();
         });
     });
 
-    setInterval(nextSlide, 5000);
+    function autoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
+    showSlide(currentIndex);
+    autoSlide();
 });
+
